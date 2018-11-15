@@ -1,4 +1,4 @@
-# Creating a Project Using Webpack, Linters, Image Bundling and Now With !!🎉🎉AXIOS🎉🎉!!
+# Creating a Project Using Webpack, Linters, Image Bundling and AXIOS
 
 ## Setup
 1. **GitHub.com** [Create a new repo on GitHub](https://github.com/new)
@@ -48,8 +48,7 @@ dist/
 
 #### package.json (These should be ADDED to your package.json, not overwriting the whole file)
 ```json
-{
-  "scripts": {
+"scripts": {
     "build": "NODE_ENV=production webpack",
     "lint": "eslint ./src --ext .js --fix",
     "dev": "NODE_ENV=development webpack-dev-server --content-base dist --hot",
@@ -77,6 +76,7 @@ dist/
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
+    "firebase": "^5.5.8",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.4"
   }
@@ -119,15 +119,15 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/,
       use: 'eslint-loader'
-    }, 
+    },
     {
-      test: /\.(png|jp(e*)g|svg)$/,  
+      test: /\.(png|jp(e*)g|svg)$/,
       use: [{
           loader: 'url-loader',
-          options: { 
+          options: {
               limit: 8000, // Convert images < 8kb to base64 strings
               name: 'images/[hash]-[name].[ext]'
-          } 
+          }
       }]
     },
     {
